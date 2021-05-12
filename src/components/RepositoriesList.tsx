@@ -4,6 +4,7 @@ import { useActions } from '../hooks/useActions';
 
 const RepositoriesList: React.FC = () => {
   const [term, setTerm] = useState('');
+  const [searched, setSearched] = useState(false);
   const { searchRepositories } = useActions();
   const { data, loading, error } = useTypedSelector(
     (state) => state.repositories
@@ -12,6 +13,7 @@ const RepositoriesList: React.FC = () => {
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
+    setSearched(true);
     searchRepositories(term);
   };
 
@@ -34,9 +36,12 @@ const RepositoriesList: React.FC = () => {
             <div className='result-item'>
               <a href={repository.link} key={repository.name} target='_blank'>
                 {repository.name}
-              </a>{' '}
+              </a>
             </div>
           ))}
+        {!error && !loading && data.length === 0 && searched && (
+          <h3>No results found</h3>
+        )}
       </div>
     </div>
   );
