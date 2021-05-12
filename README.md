@@ -1,6 +1,25 @@
-# Getting Started with Create React App
+## search-npm-packages
+
+A react-redux-typescript application that searches for npm packages from npmjs
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Setup
+
+Step 1:
+`npx create-react-app search-npm-packages --template typescript`
+
+Step 2:
+`cd search-npm-packages`
+
+Step 3:
+`npm install --save-exact @types/react-redux@7.1.15 axios@0.21.1 react-redux@7.2.2 redux@4.0.5 redux-thunk@2.3.0`
+
+## Screenshot
+
+![screenshot](https://github.com/martinapinky/search-npm-packages/blob/main/src/screenshot.png?raw=true)
 
 ## Available Scripts
 
