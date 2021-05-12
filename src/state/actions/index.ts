@@ -1,3 +1,4 @@
+import { RepositoryData } from '../../interfaces';
 import { ActionType } from '../action-types';
 
 interface SearchRepositoriesAction {
@@ -6,7 +7,7 @@ interface SearchRepositoriesAction {
 
 interface SearchRepositoriesSuccessAction {
   type: ActionType.SEARCH_REPOSITORIES_SUCCESS;
-  payload: string[];
+  payload: RepositoryData[];
 }
 
 interface SearchRepositoriesErrorAction {
