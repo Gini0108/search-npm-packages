@@ -2,6 +2,7 @@ import axios from 'axios';
 import { Dispatch } from 'redux';
 import { ActionType } from '../action-types';
 import { Action } from '../actions';
+import { RepositoryData } from '../../interfaces';
 
 export const searchRepositories = (term: string) => {
   return async (dispatch: Dispatch<Action>) => {
@@ -19,13 +20,13 @@ export const searchRepositories = (term: string) => {
         }
       );
 
-      const names = data.objects.map((result: any) => {
-        return result.package.name;
+      const repositories: RepositoryData[] = data.objects.map((result: any) => {
+        return { name: result.package.name, link: result.package.links.npm };
       });
 
       dispatch({
         type: ActionType.SEARCH_REPOSITORIES_SUCCESS,
-        payload: names,
+        payload: repositories,
       });
     } catch (err) {
       dispatch({
