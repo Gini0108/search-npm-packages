@@ -1,4 +1,4 @@
-## search-npm-packages
+# search-npm-packages
 
 A react-redux-typescript application that searches for npm packages from npmjs
 
